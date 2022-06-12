@@ -7,7 +7,7 @@
     "build": "webpack --config ./config/webpack.prod.config.js",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "test": "npx eslint ./src --ext 'ts,tsx'"
+    "test": "npx eslint ./src --ext ts,tsx"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

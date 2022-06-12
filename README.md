@@ -83,4 +83,10 @@ rules 增加如下配置：
 }
 ```
 
-https://jishuin.proginn.com/p/763bfbd3bb1c
+### npx eslint ./src
+
+注意：如果src的入口文件是 `.ts | .tsx` 时，执行 `npx eslint ./src` 会出现找不到 src 文件的报错，因此在执行的时候需要加上如下后缀：
+
+```js
+
+```
