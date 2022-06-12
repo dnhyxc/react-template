@@ -1,0 +1,40 @@
+{
+  "fileheader.configObj": {
+    //快速添加文件头部注释和函数注释
+    "createFileTime": true, // 设置为true则为文件新建时候作为date，否则注释生成时间为date
+    "autoAdd": true, // 自动生成注释
+    "annotationStr": {
+      "head": "/*",
+      "middle": " * @",
+      "end": " */",
+      "use": true // 设置自定义注释可用
+    }
+  },
+  "fileheader.cursorMode": {
+    // 快速注释函数 ctrl+win+t
+    "Author": "dnh", // 作者
+    "description": "", // 函数描述
+    "param": "", // 函数参数
+    "return": "" // 函数输出
+    // "Date": "Do not edit", // 创建时间
+    // "LastEditors": "dnh" // 修改人员
+  },
+  "fileheader.customMade": {
+    // 快速注释文件头部 ctrl+win+i
+    "Description": "", // 文件描述
+    "Author": "dnh", // 作者
+    "Date": "Do not edit", // 创建时间
+    "LastEditTime": "Do not edit", // 最后一次修改的时间
+    "LastEditors": "dnh", // 修改人员
+    "FilePath": "no item name"
+  },
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
