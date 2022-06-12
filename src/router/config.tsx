@@ -1,12 +1,12 @@
 import { lazy } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
-import Layout from "../layout/layout";
+import Layout from "@/layout";
 
-const Home = lazy(() => import("../view/home"));
-const Message = lazy(() => import("../view/message"));
-const About = lazy(() => import("../view/about"));
-const Detail = lazy(() => import("../view/detail"));
-const Login = lazy(() => import("../view/login"));
+const Home = lazy(() => import("@/view/home"));
+const Message = lazy(() => import("@/view/message"));
+const About = lazy(() => import("@/view/about"));
+const Detail = lazy(() => import("@/view/detail"));
+const Login = lazy(() => import("@/view/login"));
 
 const routes: RouteObject[] = [
   {

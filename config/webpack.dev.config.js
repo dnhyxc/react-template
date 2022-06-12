@@ -14,9 +14,9 @@ const common = require("./webpack.common.config");
 module.exports = merge(common, {
   mode: "development",
   output: {
-    // filename: "js/bundle.js",
     filename: "js/[name]-bundle-[hash:6].js",
     path: path.resolve(__dirname, "../dist"),
+    // 防止刷新页面后出现页面丢失报错！GET http://localhost:9000/home/js/bundle.js net::ERR_ABORTED 404 (Not Found)
     publicPath: "/",
   },
   module: {
@@ -38,8 +38,8 @@ module.exports = merge(common, {
         ],
       },
       /**
-       * 使用两次less-loader解决开启css模块化时导致antd自定义主题失效的问题。
-       * 需要在不开启模块化时，设置antd自定义主题才会生效，因此这一个less-loader使用include针对node_modules中的组件库（即antd）在不开启css模块化的情况下，开启自定义主题的设置。
+       * 使用两次 less-loader 解决开启 css 模块化时导致antd自定义主题失效的问题。
+       * 需要在不开启模块化时，设置 antd 自定义主题才会生效，因此这一个 less-loader 使用 include 针对 node_modules 中的组件库（即 antd ）在不开启 css 模块化的情况下，开启自定义主题的设置。
        *
        */
       {
@@ -53,7 +53,7 @@ module.exports = merge(common, {
             loader: "less-loader",
             options: {
               lessOptions: {
-                // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+                // 如果使用 less-loader@5，需要移除 lessOptions 这一级直接配置选项。
                 sourceMap: true,
                 modifyVars: {
                   "primary-color": "#1DA57A",
@@ -67,7 +67,7 @@ module.exports = merge(common, {
         ],
       },
       /**
-       * 该less-loader使用exclude排除node_modules中的组件库，只针对自己的代码开启css模块化
+       * 该 less-loader 使用 exclude 排除 node_modules 中的组件库，只针对自己的代码开启 css 模块化
        */
       {
         test: /\.less$/,
@@ -124,8 +124,12 @@ module.exports = merge(common, {
   devServer: {
     port: 9000,
     compress: true,
-    // 设置browserHistory路由模式时，防止出现404的情况
+    // 设置 browserHistory 路由模式时，防止出现404的情况
     historyApiFallback: true,
+    // 不将错误信息显示在浏览器中
+    client: {
+      overlay: false,
+    },
   },
   devtool: "eval-cheap-module-source-map",
 });

@@ -19,7 +19,6 @@ module.exports = merge(common, {
   output: {
     filename: "js/[name]-bundle-[hash:6].js",
     path: path.resolve(__dirname, "../dist"),
-    // 防止刷新页面后出现页面丢失报错！GET http://localhost:9000/home/js/bundle.js net::ERR_ABORTED 404 (Not Found)
     publicPath: "/",
   },
   module: {
@@ -51,7 +50,6 @@ module.exports = merge(common, {
             loader: "less-loader",
             options: {
               lessOptions: {
-                // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
                 sourceMap: true,
                 modifyVars: {
                   "primary-color": "#1DA57A",

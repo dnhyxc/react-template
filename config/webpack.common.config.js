@@ -33,6 +33,7 @@ module.exports = {
       },
       {
         test: /\.ts(x?)$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
@@ -51,7 +52,6 @@ module.exports = {
           },
           "ts-loader",
         ],
-        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
