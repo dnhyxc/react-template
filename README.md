@@ -161,7 +161,7 @@ yarn add eslint-config-prettier eslint-plugin-prettier -D
 
 首先安装如下插件：
 
-```
+```js
 yarn add eslint-import-resolver-webpack -D
 ```
 
@@ -175,10 +175,42 @@ yarn add eslint-import-resolver-webpack -D
 }
 ```
 
+### 配置 husky
+
+首先需要安装 husky：
+
+```js
+yarn add husky -D
+```
+
+之后执行如下命令生成 `.husky` 文件，并在该文件夹下生成 `pre-commit` 文件：
+
+```js
+npm set-script prepare "husky install"
+
+npm run prepare
+
+npx husky add .husky/pre-commit "npm test"
+```
+
+> 注意：执行 npm set-script prepare "husky install" 之前，必须要先使用 git init 创建 .git 文件，否则将会执行失败。
+
+最后在 `package.json` 文件中增加如下两条脚本：
+
+```js
+{
+  "scripts": {
+    // ...
++   "prepare": "husky install",
++   "test": "npx eslint ./src"
+  }
+}
+```
+
 ### npx eslint ./src
 
 注意：如果 src 的入口文件是 `.ts | .tsx` 时，执行 `npx eslint ./src` 会出现找不到 src 文件的报错，因此在执行的时候需要加上如下后缀：
 
-```
+```js
 npx eslint ./src --ext ts,tsx
 ```
