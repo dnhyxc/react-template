@@ -7,6 +7,7 @@
  * @LastEditTime: 2022-06-10 19:14:23
  */
 const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -28,7 +29,6 @@ module.exports = {
               ],
             },
           },
-          "eslint-loader",
         ],
       },
       {
@@ -64,6 +64,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new ESLintPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "../src"),

@@ -8,12 +8,12 @@
  */
 const path = require("path");
 const { merge } = require("webpack-merge");
-const common = require("./webpack.common.config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const common = require("./webpack.common.config");
 
 module.exports = merge(common, {
   output: {

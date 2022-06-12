@@ -1,9 +1,8 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
-import { Menu } from "antd";
+import { Menu, Layout } from "antd";
 import styles from "./index.less";
-
-import { Layout } from "antd";
 
 const { Sider } = Layout;
 

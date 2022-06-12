@@ -19,13 +19,8 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "import/extensions": "off",
-    "import/no-unresolved": "off",
-    "react/jsx-filename-extension": [
-      2,
-      {
-        "extensions": [".js", ".jsx", ".tsx", ".ts"]
-      }
-    ],
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/no-extraneous-dependencies": "off",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
       2,
@@ -33,6 +28,24 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ]
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".ts", ".tsx", ".js", ".jsx"] }
+    ],
+    "no-plusplus": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "./config/webpack.common.config.js"
+      }
+    }
   }
 }

@@ -59,19 +59,17 @@ yarn add eslint-config-prettier eslint-plugin-prettier -D
 首先安装如下插件：
 
 ```
-yarn add eslint-import-resolver-webpack eslint-import-resolver-alias -D
+yarn add eslint-import-resolver-webpack -D
 ```
 
 增加一个与 rules 配置同级的 settings 配置：
 
 ```json
-"settings": {
-  "import/resolver": {
-    "alias": {
-      "map": [["@", "./src"]]
-    }
+"import/resolver": {
+  "webpack": {
+    "config": "./config/webpack.common.config.js"
   }
-},
+}
 ```
 
 rules 增加如下配置：

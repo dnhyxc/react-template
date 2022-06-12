@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
 import Layout from "../layout/layout";
+
 const Home = lazy(() => import("../view/home"));
 const Message = lazy(() => import("../view/message"));
 const About = lazy(() => import("../view/about"));
