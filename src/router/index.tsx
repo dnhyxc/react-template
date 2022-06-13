@@ -1,4 +1,11 @@
-import React, { Suspense } from "react";
+/*
+ * @Description: 路由组件
+ * @Author: dnh
+ * @Date: 2022-06-13 09:41:39
+ * @LastEditors: dnh
+ * @FilePath: \src\router\index.tsx
+ */
+import React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import routeConfig from "./config";
 
@@ -13,9 +20,7 @@ interface IProps {
 const App: React.FC<IProps> = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={null}>
-        <RouterConfig />
-      </Suspense>
+      <RouterConfig />
     </BrowserRouter>
   );
 };

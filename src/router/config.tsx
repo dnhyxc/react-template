@@ -1,45 +1,85 @@
-import { lazy } from "react";
+/*
+ * @Description: 路由配置
+ * @Author: dnh
+ * @Date: 2022-06-13 09:41:39
+ * @LastEditors: dnh
+ * @FilePath: \src\router\config.tsx
+ */
+import { lazy, Suspense, ReactNode } from "react";
 import { Navigate, RouteObject } from "react-router-dom";
-import Layout from "@/layout";
+import { Spin } from "antd";
+import AppLayout from "@/layout";
+import Access from "@/components/Access";
+import styles from "./index.less";
 
 const Home = lazy(() => import("@/view/home"));
 const Message = lazy(() => import("@/view/message"));
 const About = lazy(() => import("@/view/about"));
 const Detail = lazy(() => import("@/view/detail"));
 const Login = lazy(() => import("@/view/login"));
+const News = lazy(() => import("@/view/news"));
+const Content = lazy(() => import("@/view/content"));
+
+const lazyLoad = (children: ReactNode): ReactNode => {
+  return (
+    <Suspense fallback={<Spin className={styles.loading} />}>
+      {children}
+    </Suspense>
+  );
+};
 
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Layout />, // 指定路由渲染容器
+    element: <AppLayout />, // 指定路由渲染容器
     children: [
       {
-        path: "/home",
-        element: <Home />,
+        path: "home",
+        element: lazyLoad(<Home />),
+      },
+      {
+        path: "about",
+        element: lazyLoad(<About />),
         children: [
           {
             path: "message",
-            element: <Message />,
+            element: lazyLoad(<Message />),
+          },
+          {
+            path: "news",
+            element: lazyLoad(<News />),
           },
         ],
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "content",
+        element: lazyLoad(<Content />),
       },
       {
-        path: "/about/detail/:id",
-        element: <Detail />,
+        path: "home/detail/:id",
+        element: lazyLoad(<Detail />),
       },
       {
-        path: "/home/detail",
-        element: <Detail />,
+        path: "about/news/detail",
+        element: lazyLoad(
+          <Access allow>
+            <Detail />
+          </Access>
+        ),
+      },
+      {
+        path: "about/message/detail",
+        element: lazyLoad(
+          <Access allow={false}>
+            <Detail />
+          </Access>
+        ),
       },
     ],
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "login",
+    element: lazyLoad(<Login />),
   },
   {
     path: "*",

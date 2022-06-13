@@ -4,7 +4,7 @@
  * @Date: 2022-06-10 15:13:32
  * @LastEditors: dnh
  * @FilePath: \config\webpack.common.config.js
- * @LastEditTime: 2022-06-13 10:00:53
+ * @LastEditTime: 2022-06-13 11:40:24
  */
 const path = require("path");
 const ESLintPlugin = require("eslint-webpack-plugin");
@@ -69,6 +69,7 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "../src"),
+      "@styles": path.resolve(__dirname, "../styles"),
     },
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".less", ".scss"],
   },

@@ -18,10 +18,12 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "import/extensions": "off",
+    "import/extensions": 0,
+    "prettier/prettier": 1,
+    "no-unused-vars": "error", // 开启没有用过的变量检测
     "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
-    "import/no-extraneous-dependencies": "off",
-    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": 0,
+    "react/react-in-jsx-scope": 0,
     "react/function-component-definition": [
       2,
       {
@@ -33,14 +35,18 @@
       "error",
       { "extensions": [".ts", ".tsx", ".js", ".jsx"] }
     ],
-    "no-plusplus": "off",
-    "import/prefer-default-export": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off"
+    "no-plusplus": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "react/jsx-no-undef": 2,
+    "react/require-default-props": 0,
+    "react/jsx-no-useless-fragment": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx", "jsx", "js"]
     },
     "import/resolver": {
       "webpack": {

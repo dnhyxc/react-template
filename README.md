@@ -3,8 +3,8 @@
  * @Author: dnh
  * @Date: 2022-06-10 11:52:37
  * @LastEditors: dnh
- * @FilePath: \example\react\mobx\README.md
- * @LastEditTime: 2022-06-10 19:07:55
+ * @FilePath: \README.md
+ * @LastEditTime: 2022-06-13 10:15:42
 -->
 
 ### antd 按需加载
@@ -214,3 +214,9 @@ npx husky add .husky/pre-commit "npm test"
 ```js
 npx eslint ./src --ext ts,tsx
 ```
+
+### husky 执行报错处理
+
+当使用 mac 生成 `.husky` 文件时，在 windows 上执行会报：`error: cannot spawn .husky/pre-commit: No such file or directory` 这个错误，出现这个错误的原因是因为 mac 与 windows 两者之间的换行符不同。
+
+解决这个报错的方式是：将原有的 `.husky` 文件删除，重新执行上述命令生成。

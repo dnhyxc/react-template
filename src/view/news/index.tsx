@@ -3,32 +3,32 @@
  * @Author: dnh
  * @Date: 2022-06-13 09:41:39
  * @LastEditors: dnh
- * @FilePath: \src\view\message\index.tsx
+ * @FilePath: \src\view\news\index.tsx
  */
 import { Button } from "antd";
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./index.less";
 
-const Message: React.FC = () => {
+const News: React.FC = () => {
   // 接受 state 传参
   const navigate = useNavigate();
 
-  const location = useLocation();
+  const [search] = useSearchParams();
 
-  const { from } = (location.state as any) || {};
+  const from = search.get("from");
 
   const onClickMessage = (index: number) => {
-    navigate(`/about/message/detail?id=${index}`);
+    navigate(`/about/news/detail?id=${index}`);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.list}>
-        {[0, 1, 2].map((i) => {
+        {[100, 200, 300].map((i) => {
           return (
             <div key={i} className={styles.item}>
-              {from}
+              我从 {from} 来
               <Button onClick={() => onClickMessage(i)}>to detail</Button>
             </div>
           );
@@ -38,4 +38,4 @@ const Message: React.FC = () => {
   );
 };
 
-export default Message;
+export default News;
