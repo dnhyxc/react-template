@@ -43,7 +43,7 @@ const About = () => {
       <Header>About</Header>
       <div className={styles.wrap}>
         <div className={styles.content}>
-          <Button className={styles.btn} onClick={toMessage}>
+          <Button type="primary" className={styles.btn} onClick={toMessage}>
             click show message
           </Button>
           <Button className={styles.btn} onClick={toNews}>
