@@ -20,7 +20,7 @@ const Detail = () => {
   const id = search.get("id");
   const { id: paramsId } = useParams();
 
-  const { add } = useStore();
+  const { add, detail } = useStore();
 
   const onIncrement = () => {
     add.increment();
@@ -38,6 +38,18 @@ const Detail = () => {
     add.reset();
   };
 
+  const onInitList = () => {
+    detail.initList();
+  };
+
+  const addItem = () => {
+    detail.addItem();
+  };
+
+  const deleteItem = (index: number) => {
+    detail.deleteItem(index);
+  };
+
   return (
     <div className={styles.container}>
       <Header>Detail</Header>
@@ -46,11 +58,26 @@ const Detail = () => {
           <div>detailId - {id || paramsId}</div>
           <div className={styles.countAction}>
             <h1>{add.count}</h1>
+            <div>
+              {detail.list.map((i) => {
+                return (
+                  <div key={i.id}>
+                    <span>name: {i.name}</span> - <span>age: {i.age}</span>
+                    <Button type="link" onClick={() => deleteItem(i.id)}>
+                      删除item
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
             <div className={styles.actions}>
               <Button onClick={onIncrement}>点我加</Button>
               <Button onClick={onIncrementAsync}>异步加</Button>
               <Button onClick={onDecrement}>点我减</Button>
               <Button onClick={onReset}>重置</Button>
+              <hr />
+              <Button onClick={addItem}>增加item</Button>
+              <Button onClick={onInitList}>重新获取List</Button>
             </div>
           </div>
         </div>

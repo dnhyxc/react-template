@@ -8,9 +8,12 @@
  */
 import { createContext, useContext } from "react";
 import addMobx from "./add";
+import detailMobx from "./detail";
 
 class RootStore {
   add = addMobx;
+
+  detail = detailMobx;
 }
 
 const store = new RootStore();
