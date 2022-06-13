@@ -3,11 +3,12 @@
  * @Author: dnh
  * @Date: 2022-06-10 15:13:32
  * @LastEditors: dnh
- * @FilePath: \example\react\mobx\config\webpack.common.config.js
- * @LastEditTime: 2022-06-10 19:14:23
+ * @FilePath: \config\webpack.common.config.js
+ * @LastEditTime: 2022-06-13 10:00:53
  */
 const path = require("path");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const WebpackBar = require("webpackbar");
 
 module.exports = {
   entry: {
@@ -64,7 +65,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ESLintPlugin()],
+  plugins: [new ESLintPlugin(), new WebpackBar()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "../src"),
