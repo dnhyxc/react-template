@@ -6,7 +6,7 @@
  * @FilePath: \example\react\mobx\src\store\add.ts
  * @LastEditTime: 2022-06-10 14:44:45
  */
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 class AddMobx {
   constructor() {
@@ -15,13 +15,31 @@ class AddMobx {
 
   count = 0;
 
-  minusHandle() {
+  timer: any = 0;
+
+  increment() {
+    this.count++;
+  }
+
+  decrement() {
     this.count--;
   }
 
-  addHandle() {
-    this.count++;
+  reset() {
+    this.count = 0;
+  }
+
+  // runInAction，处理一部逻辑
+  incrementAsync() {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+    this.timer = setTimeout(() => {
+      runInAction(() => {
+        this.count++;
+      });
+    }, 1000);
   }
 }
 
-export default AddMobx;
+export default new AddMobx();
