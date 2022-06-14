@@ -8,7 +8,7 @@
 import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { observer } from "mobx-react";
-import { Button, Checkbox, Input } from "antd";
+import { Button, Checkbox, Input, message } from "antd";
 import Header from "@/components/Header";
 
 import useStore from "@/store";
@@ -46,18 +46,17 @@ const Detail = () => {
   };
 
   const onCreateItem = () => {
-    detail.addItem(keyWord);
-    setKeyWord("");
+    if (keyWord) {
+      detail.addItem(keyWord);
+      setKeyWord("");
+    } else {
+      message.info("亲输入内容再添加");
+    }
   };
 
   const onInitList = () => {
     setCheckList([]);
     detail.initList();
-  };
-
-  const addItem = () => {
-    detail.addItem(keyWord);
-    setKeyWord("");
   };
 
   const deleteItem = (index: number) => {
@@ -96,82 +95,81 @@ const Detail = () => {
       <Header>Detail</Header>
       <div className={styles.wrap}>
         <div className={styles.content}>
-          <div>详情ID为：{id || paramsId}</div>
-          <div className={styles.countAction}>
-            <h1>{add.count}</h1>
-            <div className={styles.list}>
-              <div className={styles.createWrap}>
-                <Input
-                  placeholder="请输入名称"
-                  value={keyWord}
-                  onChange={(e) => onInputKeyWord(e)}
-                />
-                <Button onClick={onCreateItem}>创建</Button>
-              </div>
-              <div className={styles.checkAll}>
-                <Checkbox
-                  className={styles.checkbox}
-                  checked={
-                    detail.list.length === checkList.length &&
-                    checkList.length > 0
-                  }
-                  onChange={onSelectAll}
-                />
-                <span>全选</span>
-              </div>
-              {detail.list.map((i) => {
-                return (
-                  <div key={i.id} className={styles.item}>
-                    <div className={styles.info}>
-                      <Checkbox
-                        className={styles.checkbox}
-                        checked={checkList.includes(i.id)}
-                        onChange={() => onSelect(i.id)}
-                      />
-                      <span>name: {i.name}</span> - <span>age: {i.age}</span>
-                    </div>
-                    <Button type="link" onClick={() => deleteItem(i.id)}>
-                      删除
-                    </Button>
+          <div className={styles.scrollWrap}>
+            <div>详情ID为：{id || paramsId}</div>
+            <div className={styles.countAction}>
+              <h1>{add.count}</h1>
+              <div className={styles.list}>
+                <div className={styles.createWrap}>
+                  <Input
+                    placeholder="请输入名称"
+                    value={keyWord}
+                    onChange={(e) => onInputKeyWord(e)}
+                  />
+                  <Button type="primary" onClick={onCreateItem}>
+                    创建
+                  </Button>
+                </div>
+                {detail.list.length > 0 && (
+                  <div className={styles.checkAll}>
+                    <Checkbox
+                      className={styles.checkbox}
+                      checked={
+                        detail.list.length === checkList.length &&
+                        checkList.length > 0
+                      }
+                      onChange={onSelectAll}
+                    />
+                    <span>全选</span>
                   </div>
-                );
-              })}
-            </div>
-            <div className={styles.actions}>
-              <Button className={styles.action} onClick={onIncrement}>
-                点我加
-              </Button>
-              <Button className={styles.action} onClick={onIncrementAsync}>
-                异步加
-              </Button>
-              <Button className={styles.action} onClick={onDecrement}>
-                点我减
-              </Button>
-              <Button className={styles.action} onClick={onReset}>
-                重置
-              </Button>
-              <Button
-                type="primary"
-                className={styles.action}
-                onClick={addItem}
-              >
-                增加item
-              </Button>
-              <Button
-                type="primary"
-                className={styles.action}
-                onClick={onInitList}
-              >
-                重新获取List
-              </Button>
-              <Button
-                type="primary"
-                className={styles.action}
-                onClick={onDeleteAllChecked}
-                disabled={checkList.length === 0}
-              >
-                批量删除
-              </Button>
+                )}
+                {detail.list.map((i) => {
+                  return (
+                    <div key={i.id} className={styles.item}>
+                      <div className={styles.info}>
+                        <Checkbox
+                          className={styles.checkbox}
+                          checked={checkList.includes(i.id)}
+                          onChange={() => onSelect(i.id)}
+                        />
+                        <span>{i.name}</span>
+                      </div>
+                      <Button type="link" onClick={() => deleteItem(i.id)}>
+                        删除
+                      </Button>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className={styles.actions}>
+                <Button className={styles.action} onClick={onIncrement}>
+                  点我加
+                </Button>
+                <Button className={styles.action} onClick={onIncrementAsync}>
+                  异步加
+                </Button>
+                <Button className={styles.action} onClick={onDecrement}>
+                  点我减
+                </Button>
+                <Button className={styles.action} onClick={onReset}>
+                  重置
+                </Button>
+                <Button
+                  type="primary"
+                  className={styles.action}
+                  onClick={onInitList}
+                >
+                  重新获取List
+                </Button>
+                <Button
+                  type="primary"
+                  className={styles.action}
+                  onClick={onDeleteAllChecked}
+                  disabled={checkList.length === 0}
+                >
+                  批量删除
+                </Button>
+              </div>
             </div>
           </div>
         </div>

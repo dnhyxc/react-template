@@ -29,7 +29,9 @@ const News: React.FC = () => {
           return (
             <div key={i} className={styles.item}>
               我从 {from} 来
-              <Button onClick={() => onClickMessage(i)}>to detail</Button>
+              <Button type="primary" onClick={() => onClickMessage(i)}>
+                详情
+              </Button>
             </div>
           );
         })}

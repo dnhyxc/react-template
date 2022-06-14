@@ -9,7 +9,6 @@ import { makeAutoObservable } from "mobx";
 
 interface ListParams {
   name: string;
-  age: number;
   id: number;
 }
 
@@ -21,7 +20,6 @@ class DetailStore {
   list: ListParams[] = [
     {
       name: "initName",
-      age: 18,
       id: 1,
     },
   ];
@@ -30,26 +28,22 @@ class DetailStore {
     this.list = [
       {
         name: "name1",
-        age: 18,
         id: 2,
       },
       {
         name: "name2",
-        age: 19,
         id: 3,
       },
       {
         name: "name3",
-        age: 20,
         id: 4,
       },
     ];
   }
 
   addItem(keyword: string) {
-    this.list.push({
+    this.list.unshift({
       name: keyword,
-      age: this.list.length + 18,
       id: this.list.length + 999,
     });
   }

@@ -9,6 +9,7 @@ import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
 import MenuList from "@/components/MenuList";
 import Footer from "@/components/Footer";
+import Decorator from "@/components/Decorator";
 import styles from "./index.less";
 
 const { Content } = Layout;
@@ -23,7 +24,7 @@ const AppLayout = () => {
         </Content>
         <Footer />
       </Layout>
-      <div className={styles.right} />
+      <Decorator />
     </div>
   );
 };

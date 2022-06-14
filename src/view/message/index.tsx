@@ -29,7 +29,9 @@ const Message: React.FC = () => {
           return (
             <div key={i} className={styles.item}>
               {from}
-              <Button onClick={() => onClickMessage(i)}>to detail</Button>
+              <Button type="primary" onClick={() => onClickMessage(i)}>
+                to detail
+              </Button>
             </div>
           );
         })}
