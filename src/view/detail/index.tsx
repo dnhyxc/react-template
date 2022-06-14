@@ -15,6 +15,8 @@ import useStore from "@/store";
 
 import styles from "./index.less";
 
+const { Search } = Input;
+
 const Detail = () => {
   const [checkList, setCheckList] = useState<number[]>([]);
   const [keyWord, setKeyWord] = useState<string>("");
@@ -41,16 +43,16 @@ const Detail = () => {
     add.reset();
   };
 
-  const onInputKeyWord = (e: any) => {
+  const onChangeKeyWord = (e: any) => {
     setKeyWord(e.target.value);
   };
 
-  const onCreateItem = () => {
-    if (keyWord) {
-      detail.addItem(keyWord);
+  const onSearch = (value: string) => {
+    if (value) {
+      detail.addItem(value);
       setKeyWord("");
     } else {
-      message.info("亲输入内容再添加");
+      message.info("请输入内容再添加");
     }
   };
 
@@ -101,29 +103,29 @@ const Detail = () => {
               <h1>{add.count}</h1>
               <div className={styles.list}>
                 <div className={styles.createWrap}>
-                  <Input
-                    placeholder="请输入名称"
+                  <Search
                     value={keyWord}
-                    onChange={(e) => onInputKeyWord(e)}
+                    onChange={(e) => onChangeKeyWord(e)}
+                    placeholder="请输入名称"
+                    allowClear
+                    enterButton="创建"
+                    onSearch={onSearch}
                   />
-                  <Button type="primary" onClick={onCreateItem}>
-                    创建
-                  </Button>
                 </div>
                 <div className={styles.actions}>
                   <Button onClick={onIncrement}>点我加</Button>
                   <Button onClick={onIncrementAsync}>异步加</Button>
                   <Button onClick={onDecrement}>点我减</Button>
                   <Button onClick={onReset}>重置</Button>
-                  <Button type="primary" onClick={onInitList}>
-                    重新获取List
-                  </Button>
                   <Button
                     type="primary"
                     onClick={onDeleteAllChecked}
                     disabled={checkList.length === 0}
                   >
                     批量删除
+                  </Button>
+                  <Button type="primary" onClick={onInitList}>
+                    重新获取LIST
                   </Button>
                 </div>
                 {detail.list.length > 0 && (
