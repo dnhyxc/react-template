@@ -110,6 +110,22 @@ const Detail = () => {
                     创建
                   </Button>
                 </div>
+                <div className={styles.actions}>
+                  <Button onClick={onIncrement}>点我加</Button>
+                  <Button onClick={onIncrementAsync}>异步加</Button>
+                  <Button onClick={onDecrement}>点我减</Button>
+                  <Button onClick={onReset}>重置</Button>
+                  <Button type="primary" onClick={onInitList}>
+                    重新获取List
+                  </Button>
+                  <Button
+                    type="primary"
+                    onClick={onDeleteAllChecked}
+                    disabled={checkList.length === 0}
+                  >
+                    批量删除
+                  </Button>
+                </div>
                 {detail.list.length > 0 && (
                   <div className={styles.checkAll}>
                     <Checkbox
@@ -140,35 +156,6 @@ const Detail = () => {
                     </div>
                   );
                 })}
-              </div>
-              <div className={styles.actions}>
-                <Button className={styles.action} onClick={onIncrement}>
-                  点我加
-                </Button>
-                <Button className={styles.action} onClick={onIncrementAsync}>
-                  异步加
-                </Button>
-                <Button className={styles.action} onClick={onDecrement}>
-                  点我减
-                </Button>
-                <Button className={styles.action} onClick={onReset}>
-                  重置
-                </Button>
-                <Button
-                  type="primary"
-                  className={styles.action}
-                  onClick={onInitList}
-                >
-                  重新获取List
-                </Button>
-                <Button
-                  type="primary"
-                  className={styles.action}
-                  onClick={onDeleteAllChecked}
-                  disabled={checkList.length === 0}
-                >
-                  批量删除
-                </Button>
               </div>
             </div>
           </div>
