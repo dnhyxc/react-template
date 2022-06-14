@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmobx=self.webpackChunkmobx||[]).push([[915],{8915:function(n,e,t){t.r(e);var u=t(5893);e.default=function(){return(0,u.jsx)("div",{children:"Content"})}}}]);
