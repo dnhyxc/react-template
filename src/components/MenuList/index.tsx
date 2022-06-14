@@ -48,6 +48,7 @@ const MenuList: React.FC = () => {
       theme="light"
       trigger={null}
       collapsible
+      width={180}
       className={styles.siderWrap}
     >
       <div className={styles.logo}>React Template</div>

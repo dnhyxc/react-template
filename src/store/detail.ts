@@ -46,9 +46,9 @@ class DetailStore {
     ];
   }
 
-  addItem() {
+  addItem(keyword: string) {
     this.list.push({
-      name: "dnhyxc",
+      name: keyword,
       age: this.list.length + 18,
       id: this.list.length + 999,
     });

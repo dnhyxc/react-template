@@ -23,6 +23,7 @@ const AppLayout = () => {
         </Content>
         <Footer />
       </Layout>
+      <div className={styles.right} />
     </div>
   );
 };

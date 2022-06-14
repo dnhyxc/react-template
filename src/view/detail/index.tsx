@@ -8,7 +8,7 @@
 import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { observer } from "mobx-react";
-import { Button, Checkbox } from "antd";
+import { Button, Checkbox, Input } from "antd";
 import Header from "@/components/Header";
 
 import useStore from "@/store";
@@ -17,6 +17,7 @@ import styles from "./index.less";
 
 const Detail = () => {
   const [checkList, setCheckList] = useState<number[]>([]);
+  const [keyWord, setKeyWord] = useState<string>("");
   // 接收query传参
   const [search] = useSearchParams();
   const id = search.get("id");
@@ -40,13 +41,23 @@ const Detail = () => {
     add.reset();
   };
 
+  const onInputKeyWord = (e: any) => {
+    setKeyWord(e.target.value);
+  };
+
+  const onCreateItem = () => {
+    detail.addItem(keyWord);
+    setKeyWord("");
+  };
+
   const onInitList = () => {
     setCheckList([]);
     detail.initList();
   };
 
   const addItem = () => {
-    detail.addItem();
+    detail.addItem(keyWord);
+    setKeyWord("");
   };
 
   const deleteItem = (index: number) => {
@@ -89,6 +100,14 @@ const Detail = () => {
           <div className={styles.countAction}>
             <h1>{add.count}</h1>
             <div className={styles.list}>
+              <div className={styles.createWrap}>
+                <Input
+                  placeholder="请输入名称"
+                  value={keyWord}
+                  onChange={(e) => onInputKeyWord(e)}
+                />
+                <Button onClick={onCreateItem}>创建</Button>
+              </div>
               <div className={styles.checkAll}>
                 <Checkbox
                   className={styles.checkbox}
