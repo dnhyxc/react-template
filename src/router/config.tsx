@@ -20,9 +20,9 @@ const Login = lazy(() => import("@/view/login"));
 const News = lazy(() => import("@/view/news"));
 const Content = lazy(() => import("@/view/content"));
 
-const lazyLoad = (children: ReactNode): ReactNode => {
+const lazyLoad = (children: ReactNode, needSpin = true): ReactNode => {
   return (
-    <Suspense fallback={<Spin className={styles.loading} />}>
+    <Suspense fallback={needSpin ? <Spin className={styles.loading} /> : null}>
       {children}
     </Suspense>
   );
@@ -43,11 +43,11 @@ const routes: RouteObject[] = [
         children: [
           {
             path: "message",
-            element: lazyLoad(<Message />),
+            element: lazyLoad(<Message />, false),
           },
           {
             path: "news",
-            element: lazyLoad(<News />),
+            element: lazyLoad(<News />, false),
           },
         ],
       },

@@ -131,5 +131,5 @@ module.exports = merge(common, {
       overlay: false,
     },
   },
-  devtool: "eval-cheap-module-source-map",
+  devtool: "source-map",
 });
