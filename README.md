@@ -215,6 +215,12 @@ npx husky add .husky/pre-commit "npm test"
 npx eslint ./src --ext ts,tsx
 ```
 
+配置自动修复部分 eslint 报错，只需要在上述脚本的末尾加上 `--fix` 即可：
+
+```js
+npx eslint ./src --ext ts,tsx --fix
+```
+
 ### husky 执行报错处理
 
 当使用 mac 生成 `.husky` 文件时，在 windows 上执行会报：`error: cannot spawn .husky/pre-commit: No such file or directory` 这个错误，出现这个错误的原因是因为 mac 与 windows 两者之间的换行符不同。
