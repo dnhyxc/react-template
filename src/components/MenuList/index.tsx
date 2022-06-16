@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DesktopOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
-import styles from "./index.less";
+import styles from "./index.less"
 
 const { Sider } = Layout;
 
