@@ -7,6 +7,7 @@
  */
 import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
+import Content from "@/components/Content";
 import Header from "@/components/Header";
 import styles from "./index.less";
 
@@ -20,20 +21,18 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header>Home</Header>
-      <div className={styles.wrap}>
-        <div className={styles.content}>
-          <div className={styles.list}>
-            {[100, 111, 222, 333].map((i) => (
-              <div className={styles.item} key={i}>
-                detail - {i}
-                <Button type="primary" onClick={() => toDetail(i)}>
-                  click to detail
-                </Button>
-              </div>
-            ))}
-          </div>
+      <Content>
+        <div className={styles.wrap}>
+          {[100, 111, 222, 333].map((i) => (
+            <div className={styles.item} key={i}>
+              detail - {i}
+              <Button type="primary" onClick={() => toDetail(i)}>
+                click to detail
+              </Button>
+            </div>
+          ))}
         </div>
-      </div>
+      </Content>
     </div>
   );
 };

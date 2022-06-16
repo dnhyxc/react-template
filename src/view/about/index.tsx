@@ -8,6 +8,7 @@
 import { useEffect } from "react";
 import { Button } from "antd";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import Content from "@/components/Content";
 import Header from "@/components/Header";
 import styles from "./index.less";
 
@@ -41,8 +42,8 @@ const About = () => {
   return (
     <div className={styles.container}>
       <Header>About</Header>
-      <div className={styles.wrap}>
-        <div className={styles.content}>
+      <Content>
+        <div className={styles.wrap}>
           <Button type="primary" className={styles.btn} onClick={toMessage}>
             click show message
           </Button>
@@ -51,7 +52,7 @@ const About = () => {
           </Button>
           <Outlet />
         </div>
-      </div>
+      </Content>
     </div>
   );
 };
