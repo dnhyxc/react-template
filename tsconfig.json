@@ -19,9 +19,9 @@
     "baseUrl": ".", // 引入模块的方式
     "paths": {
       "@/*": ["src/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["src/styles/*"]
     }
   },
-  "include": ["./src/**/*", "./styles/**/*"],
+  "include": ["./src/**/*", "./src/styles/**/*"],
   "exclude": ["node_modules", "dist"]
 }
