@@ -39,9 +39,31 @@ const About = () => {
     navigate("news?from=news");
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const headerLeft = () => {
+    return (
+      <div className={styles.left}>
+        <Button onClick={goBack}>返回</Button>
+      </div>
+    );
+  };
+
+  const headerRight = () => {
+    return (
+      <div className={styles.left}>
+        <Button>添加</Button>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
-      <Header>About</Header>
+      <Header needLeft left={headerLeft()} right={headerRight()}>
+        About
+      </Header>
       <Content>
         <div className={styles.wrap}>
           <Button type="primary" className={styles.btn} onClick={toMessage}>

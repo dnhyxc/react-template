@@ -14,23 +14,22 @@ import styles from "./index.less";
 const { Sider } = Layout;
 
 const MenuList: React.FC = () => {
-  const [selectMenu, setSelectMenu] = useState<string>("/");
+  const [selectMenu, setSelectMenu] = useState<string>("home");
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (pathname === "/") {
-      setSelectMenu("/home");
+    const sliceName = pathname !== "/" ? pathname.slice(1) : pathname;
+    if (sliceName === "/") {
+      setSelectMenu("home");
       navigate("home");
-    } else if (pathname === "/detail") {
-      setSelectMenu("/detail");
     } else {
-      const index = pathname.indexOf("/", 1);
+      const index = sliceName.indexOf("/", 1);
       if (index > -1) {
-        const path = pathname.slice(0, index);
+        const path = sliceName.slice(0, index);
         setSelectMenu(path);
       } else {
-        setSelectMenu(pathname);
+        setSelectMenu(sliceName);
       }
     }
     return () => {
@@ -55,7 +54,7 @@ const MenuList: React.FC = () => {
       <Menu
         mode="inline"
         defaultSelectedKeys={["home"]}
-        selectedKeys={[selectMenu.slice(1)]}
+        selectedKeys={[selectMenu]}
         items={[
           {
             key: "home",
