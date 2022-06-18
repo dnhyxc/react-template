@@ -18,7 +18,7 @@ const About = lazy(() => import("@/view/about"));
 const Detail = lazy(() => import("@/view/detail"));
 const Login = lazy(() => import("@/view/login"));
 const News = lazy(() => import("@/view/news"));
-const Content = lazy(() => import("@/view/content"));
+const CreateContent = lazy(() => import("@/view/create"));
 
 const lazyLoad = (children: ReactNode, needSpin = true): ReactNode => {
   return (
@@ -53,7 +53,7 @@ const routes: RouteObject[] = [
       },
       {
         path: "content",
-        element: lazyLoad(<Content />),
+        element: lazyLoad(<CreateContent />),
       },
       {
         path: "home/detail/:id",

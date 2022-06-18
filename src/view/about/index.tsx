@@ -51,10 +51,14 @@ const About = () => {
     );
   };
 
+  const onAddItem = () => {
+    console.log("添加～～～");
+  };
+
   const headerRight = () => {
     return (
       <div className={styles.left}>
-        <Button>添加</Button>
+        <Button onClick={onAddItem}>添加</Button>
       </div>
     );
   };
