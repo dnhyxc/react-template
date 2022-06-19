@@ -226,3 +226,23 @@ npx eslint ./src --ext ts,tsx --fix
 当使用 mac 生成 `.husky` 文件时，在 windows 上执行会报：`error: cannot spawn .husky/pre-commit: No such file or directory` 这个错误，出现这个错误的原因是因为 mac 与 windows 两者之间的换行符不同。
 
 解决这个报错的方式是：将原有的 `.husky` 文件删除，重新执行上述命令生成。
+
+### 处理 LF 与 CRLF 转换问题
+
+Git 可以在你 push 时自动地把行结束符 CRLF 转换成 LF，而在 pull 代码时把 LF 转换成 CRLF。用 `core.autocrlf` 来打开此项功能，如果是在 Windows 系统上，把它设置成 `true`，这样当签出代码时，LF 会被转换成 CRLF：
+
+```js
+git config --global core.autocrlf true
+```
+
+Linux 或 Mac 系统使用 LF 作为行结束符；当一个以 CRLF 为行结束符的文件不小心被引入时你肯定想进行修正，把 `core.autocrlf` 设置成 `input` 来告诉 Git 在 push 时把 CRLF 转换成 LF，pull 时不转换：
+
+```js
+git config --global core.autocrlf input
+```
+
+在本地和代码库中都保留 LF，无论 pull 还是 push 都不变，代码库什么样，本地还是什么样子：
+
+```js
+git config --global core.autocrlf false
+```
