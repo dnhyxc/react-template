@@ -7,14 +7,14 @@
  */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { DesktopOutlined, HomeOutlined } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
+import { items } from "./config";
 import styles from "./index.less";
 
 const { Sider } = Layout;
 
 const MenuList: React.FC = () => {
-  const [selectMenu, setSelectMenu] = useState<string>("home");
+  const [selectMenu, setSelectMenu] = useState<string>("");
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -55,18 +55,7 @@ const MenuList: React.FC = () => {
         mode="inline"
         defaultSelectedKeys={["home"]}
         selectedKeys={[selectMenu]}
-        items={[
-          {
-            key: "home",
-            icon: <HomeOutlined />,
-            label: "home",
-          },
-          {
-            key: "about",
-            icon: <DesktopOutlined />,
-            label: "about",
-          },
-        ]}
+        items={items}
         onClick={(e) => onSelectMenu(e)}
       />
     </Sider>

@@ -52,7 +52,7 @@ const routes: RouteObject[] = [
         ],
       },
       {
-        path: "content",
+        path: "create",
         element: lazyLoad(<CreateContent />),
       },
       {
