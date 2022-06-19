@@ -7,6 +7,8 @@
  */
 import React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import { ConfigProvider } from "antd";
+import zhCN from "antd/lib/locale/zh_CN";
 import routeConfig from "./config";
 
 const RouterConfig = () => {
@@ -19,9 +21,11 @@ interface IProps {
 
 const App: React.FC<IProps> = () => {
   return (
-    <BrowserRouter>
-      <RouterConfig />
-    </BrowserRouter>
+    <ConfigProvider locale={zhCN}>
+      <BrowserRouter>
+        <RouterConfig />
+      </BrowserRouter>
+    </ConfigProvider>
   );
 };
 

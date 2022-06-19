@@ -14,10 +14,7 @@ const CreateContent: React.FC = () => {
     setHtmlCode(html);
   };
 
-  console.log(htmlCode, "htmlCode");
-
   const onCreate = () => {
-    console.log("创建");
     setVisible(true);
   };
 
@@ -38,10 +35,14 @@ const CreateContent: React.FC = () => {
   return (
     <div className={styles.container}>
       <Header right={headerRight()}>Create</Header>
-      <Content>
+      <Content needScroll={false}>
         <WangEditor getHtmlCode={getHtmlCode} />
       </Content>
-      <CreateModel visible={visible} onCancel={onHideModel} />
+      <CreateModel
+        visible={visible}
+        onCancel={onHideModel}
+        htmlCode={htmlCode}
+      />
     </div>
   );
 };

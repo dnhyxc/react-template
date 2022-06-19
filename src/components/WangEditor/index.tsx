@@ -2,6 +2,7 @@ import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 import React, { useState, useEffect } from "react";
 import { Editor, Toolbar } from "@wangeditor/editor-for-react";
 import { IDomEditor } from "@wangeditor/editor";
+import Content from "../Content";
 import { toolbarConfig, editorConfig } from "./config";
 import styles from "./index.less";
 
@@ -37,17 +38,15 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
         mode="default"
         style={{ borderBottom: "1px solid #ddd" }}
       />
-      <Editor
-        defaultConfig={editorConfig}
-        value={html}
-        onCreated={setEditor}
-        onChange={(value) => onEditValueChange(value)}
-        mode="default"
-        style={{
-          flex: "1",
-          overflowY: "hidden",
-        }}
-      />
+      <Content height="100%" needPadding={false}>
+        <Editor
+          defaultConfig={editorConfig}
+          value={html}
+          onCreated={setEditor}
+          onChange={(value) => onEditValueChange(value)}
+          mode="default"
+        />
+      </Content>
     </div>
   );
 };
