@@ -63,6 +63,10 @@ module.exports = {
           limit: 8192,
         },
       },
+      {
+        test: /\.md$/,
+        use: "raw-loader",
+      },
     ],
   },
   plugins: [new ESLintPlugin(), new WebpackBar()],
