@@ -1,8 +1,8 @@
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Editor, Toolbar } from "@wangeditor/editor-for-react";
 import { IDomEditor } from "@wangeditor/editor";
-import Content from "../Content";
+import { Scrollbars } from "react-custom-scrollbars";
 import { toolbarConfig, editorConfig } from "./config";
 import styles from "./index.less";
 
@@ -30,12 +30,6 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
     setHtml(value.getHtml());
   };
 
-  const scrollRef: any = useRef(null);
-
-  const onScrollFrame = (values: any) => {
-    console.log(values, "values>>>>>Editor");
-  };
-
   return (
     <div className={styles.container}>
       <Toolbar
@@ -44,13 +38,7 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
         mode="default"
         style={{ borderBottom: "1px solid #ddd" }}
       />
-      <Content
-        height="100%"
-        needPadding={false}
-        contentPadding="10px 0"
-        scrollRef={scrollRef}
-        onScrollFrame={onScrollFrame}
-      >
+      <Scrollbars>
         <Editor
           defaultConfig={editorConfig}
           value={html}
@@ -58,7 +46,7 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
           onChange={(value) => onEditValueChange(value)}
           mode="default"
         />
-      </Content>
+      </Scrollbars>
     </div>
   );
 };

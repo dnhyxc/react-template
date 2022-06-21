@@ -2,7 +2,7 @@ import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 import React, { useState, useEffect } from "react";
 import { Editor, Toolbar } from "@wangeditor/editor-for-react";
 import { IDomEditor } from "@wangeditor/editor";
-import Content from "../Content";
+import { Scrollbars } from "react-custom-scrollbars";
 import { toolbarConfig, editorConfig } from "./config";
 import Preview from "../Preview";
 import styles from "./index.less";
@@ -40,7 +40,7 @@ const EditPreview: React.FC<IProps> = () => {
       />
       <div className={styles.content}>
         <div className={styles.edit}>
-          <Content noRightPadding>
+          <Scrollbars>
             <Editor
               defaultConfig={editorConfig}
               value={html}
@@ -48,12 +48,14 @@ const EditPreview: React.FC<IProps> = () => {
               onChange={(value) => onEditValueChange(value)}
               mode="default"
             />
-          </Content>
+          </Scrollbars>
         </div>
         <div className={styles.preview}>
-          <Content noRightPadding>
-            <Preview mackdown={text} />
-          </Content>
+          <Scrollbars>
+            <div className={styles.previewScroll}>
+              <Preview mackdown={text} />
+            </div>
+          </Scrollbars>
         </div>
       </div>
     </div>
