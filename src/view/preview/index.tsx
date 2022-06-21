@@ -1,9 +1,8 @@
 import React from "react";
-import { observer } from "mobx-react";
 import useStore from "@/store";
 import Header from "@/components/Header";
 import Content from "@/components/Content";
-import PreviewMackdown from "@/components/PreviewMackdown";
+import Preview from "@/components/Preview";
 
 const CreateMackdown: React.FC = () => {
   const { create } = useStore();
@@ -11,7 +10,7 @@ const CreateMackdown: React.FC = () => {
     <div>
       <Header>create mackdown</Header>
       <Content>
-        <PreviewMackdown mackdown={create.mackdown} />
+        <Preview mackdown={create.mackdown} />
       </Content>
     </div>
   );

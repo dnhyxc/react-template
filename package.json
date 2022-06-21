@@ -20,7 +20,6 @@
     "@wangeditor/editor": "^5.1.1",
     "@wangeditor/editor-for-react": "^1.0.4",
     "antd": "^4.21.0",
-    "braft-editor": "^2.3.9",
     "cross-env": "^7.0.3",
     "mobx": "^6.6.0",
     "mobx-react": "^7.5.0",
