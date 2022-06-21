@@ -24,10 +24,13 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
   }, [editor]);
 
   const onEditValueChange = (value: {
+    getText: () => React.SetStateAction<string>;
     getHtml: () => React.SetStateAction<string>;
   }) => {
-    getHtmlCode(value.getHtml());
+    getHtmlCode(value.getText());
+    // getHtmlCode(value.getHtml());
     setHtml(value.getHtml());
+    // setHtml(value.getHtml());
   };
 
   return (

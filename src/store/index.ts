@@ -9,11 +9,14 @@
 import { createContext, useContext } from "react";
 import addMobx from "./add";
 import detailMobx from "./detail";
+import createMobx from "./create";
 
 class RootStore {
   add = addMobx;
 
   detail = detailMobx;
+
+  create = createMobx;
 }
 
 const store = new RootStore();

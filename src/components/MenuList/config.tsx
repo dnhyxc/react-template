@@ -17,8 +17,8 @@ export const items = [
     label: "create",
   },
   {
-    key: "mackdown",
+    key: "preview",
     icon: <FormOutlined />,
-    label: "mackdown",
+    label: "preview",
   },
 ];

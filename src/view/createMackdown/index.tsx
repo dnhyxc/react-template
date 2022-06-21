@@ -1,14 +1,15 @@
 import React from "react";
-import Header from "@/components/Header";
+import BraftEditor from "braft-editor";
 import Content from "@/components/Content";
-import Mackdown from "@/components/Mackdown";
+import Header from "@/components/Header";
+import styles from "./index.less";
 
 const CreateMackdown: React.FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Header>create mackdown</Header>
       <Content>
-        <Mackdown />
+        <BraftEditor />
       </Content>
     </div>
   );

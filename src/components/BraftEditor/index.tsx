@@ -1,46 +1,40 @@
 /* eslint-disable react/destructuring-assignment */
 // @ts-nocheck
-import React from "react";
-import BraftEditor from "braft-editor";
 import "braft-editor/dist/index.css";
+import React, { useState } from "react";
+import BraftEditor from "braft-editor";
+import { observer } from "mobx-react";
+import useStore from "@/store";
 
-export default class EditorDemo extends React.Component {
-  // eslint-disable-next-line react/state-in-constructor
-  state = {
-    editorState: null,
-  };
+const EditorDemo = () => {
+  const [editorState, setEditorState] = useState();
 
-  async componentDidMount() {
-    // const htmlContent = await fetchEditorContent();
-    // this.setState({
-    //   editorState: BraftEditor.createEditorState(htmlContent),
-    // });
-  }
+  const { create } = useStore();
 
-  submitContent = async () => {
+  const submitContent = () => {
     // Pressing ctrl + s when the editor has focus will execute this method
     // Before the editor content is submitted to the server, you can directly call editorState.toHTML () to get the HTML content
-    const htmlContent = this.state.editorState.toHTML();
+    const htmlContent = editorState.toText();
 
-    console.log(htmlContent, "htmlContent");
+    console.log(htmlContent, "this.state.editorState");
   };
 
-  handleEditorChange = (editorState: any) => {
+  // eslint-disable-next-line no-shadow
+  const handleEditorChange = (editorState) => {
     console.log(editorState, "editorState");
-    this.setState({ editorState });
+    create.createMackdown(editorState.toText());
+    setEditorState(editorState);
   };
 
-  render() {
-    const { editorState } = this.state;
+  return (
+    <div className="my-component">
+      <BraftEditor
+        value={editorState}
+        onChange={handleEditorChange}
+        onSave={submitContent}
+      />
+    </div>
+  );
+};
 
-    return (
-      <div className="my-component">
-        <BraftEditor
-          value={editorState}
-          onChange={this.handleEditorChange}
-          onSave={this.submitContent}
-        />
-      </div>
-    );
-  }
-}
+export default observer(EditorDemo);

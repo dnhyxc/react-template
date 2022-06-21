@@ -19,7 +19,7 @@ const Detail = lazy(() => import("@/view/detail"));
 const Login = lazy(() => import("@/view/login"));
 const News = lazy(() => import("@/view/news"));
 const CreateContent = lazy(() => import("@/view/create"));
-const CreateMackdown = lazy(() => import("@/view/mackdown"));
+const PreviewMackdown = lazy(() => import("@/view/preview"));
 
 const lazyLoad = (children: ReactNode, needSpin = true): ReactNode => {
   return (
@@ -57,8 +57,8 @@ const routes: RouteObject[] = [
         element: lazyLoad(<CreateContent />),
       },
       {
-        path: "mackdown",
-        element: lazyLoad(<CreateMackdown />),
+        path: "preview",
+        element: lazyLoad(<PreviewMackdown />),
       },
       {
         path: "home/detail/:id",
