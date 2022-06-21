@@ -4,6 +4,21 @@
   width: 100%;
   height: 100%;
 
+  .content {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .preview {
+      flex: 1;
+    }
+
+    .edit {
+      flex: 1;
+      border-right: 5px solid #ccc;
+    }
+  }
+
   :global(.w-e-text-container [data-slate-editor] p) {
     margin: 0;
   }

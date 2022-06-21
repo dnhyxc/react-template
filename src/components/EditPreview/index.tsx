@@ -1,18 +1,18 @@
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Editor, Toolbar } from "@wangeditor/editor-for-react";
 import { IDomEditor } from "@wangeditor/editor";
 import Content from "../Content";
 import { toolbarConfig, editorConfig } from "./config";
+import Preview from "../Preview";
 import styles from "./index.less";
 
-interface IProps {
-  getHtmlCode: Function;
-}
+interface IProps {}
 
-const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
+const EditPreview: React.FC<IProps> = () => {
   const [editor, setEditor] = useState<IDomEditor | null>(null); // 存储 editor 实例
   const [html, setHtml] = useState<string>(""); // 编辑器内容
+  const [text, setText] = useState<string>(""); // 编辑器内容
 
   useEffect(() => {
     return () => {
@@ -26,14 +26,8 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
     getText: () => React.SetStateAction<string>;
     getHtml: () => React.SetStateAction<string>;
   }) => {
-    getHtmlCode(value.getText());
     setHtml(value.getHtml());
-  };
-
-  const scrollRef: any = useRef(null);
-
-  const onScrollFrame = (values: any) => {
-    console.log(values, "values>>>>>Editor");
+    setText(value.getText());
   };
 
   return (
@@ -44,23 +38,26 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
         mode="default"
         style={{ borderBottom: "1px solid #ddd" }}
       />
-      <Content
-        height="100%"
-        needPadding={false}
-        contentPadding="10px 0"
-        scrollRef={scrollRef}
-        onScrollFrame={onScrollFrame}
-      >
-        <Editor
-          defaultConfig={editorConfig}
-          value={html}
-          onCreated={setEditor}
-          onChange={(value) => onEditValueChange(value)}
-          mode="default"
-        />
-      </Content>
+      <div className={styles.content}>
+        <div className={styles.edit}>
+          <Content noRightPadding>
+            <Editor
+              defaultConfig={editorConfig}
+              value={html}
+              onCreated={setEditor}
+              onChange={(value) => onEditValueChange(value)}
+              mode="default"
+            />
+          </Content>
+        </div>
+        <div className={styles.preview}>
+          <Content noRightPadding>
+            <Preview mackdown={text} />
+          </Content>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default WangEditor;
+export default EditPreview;

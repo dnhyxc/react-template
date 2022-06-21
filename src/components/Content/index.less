@@ -1,1 +1,16 @@
 @import "~@styles/layout.less";
+
+.container {
+  .noScroll {
+    height: 100%;
+  }
+  .scroll {
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: baseline;
+  }
+  .scrollContent {
+    margin-right: 10px;
+    border: 1px solid red;
+  }
+}
