@@ -15,6 +15,7 @@ export const toolbarConfig: Partial<IToolbarConfig> = {
     "blockquote",
     "color",
     "bgColor",
+    "through",
     "clearStyle",
     "|",
     // "todo", // 代办
@@ -58,15 +59,15 @@ export const toolbarConfig: Partial<IToolbarConfig> = {
     "fontSize",
     "fontFamily",
     "lineHeight",
+    "|",
     // 菜单组，包含多个菜单
     {
       key: "group-more-style",
       title: "更多",
       iconSvg: "<span>更多</span>",
-      menuKeys: ["through", "divider", "sup", "sub"],
+      menuKeys: ["divider", "sup", "sub"],
     },
-    "|",
-    "fullScreen",
+    // "fullScreen",
   ],
 };
 
