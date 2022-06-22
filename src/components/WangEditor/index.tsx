@@ -28,6 +28,7 @@ const WangEditor: React.FC<IProps> = ({ getHtmlCode }) => {
   }) => {
     getHtmlCode(value.getText());
     setHtml(value.getHtml());
+    console.log(value.getHtml());
   };
 
   return (

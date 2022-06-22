@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import styles from "./index.less";
 
@@ -25,20 +25,12 @@ const Content: React.FC<IProps> = ({
   scrollRef,
   noRightPadding,
 }) => {
-  useEffect(() => {
-    console.log(scrollRef);
-    if (scrollRef && scrollRef.current) {
-      console.log("scrollRef.current.scrollTop;");
-    }
-  }, [scrollRef]);
-
   return (
     <div className={styles.container}>
       <div
         className={styles.wrap}
         style={{
           height,
-          // eslint-disable-next-line no-nested-ternary
           padding: !needPadding ? 0 : noRightPadding ? "6px 0 6px 6px" : "6px",
         }}
       >
