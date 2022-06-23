@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Content from "@/components/Content";
-import EditPreview from "@/components/EditPreview";
+import TuiEditor from "@/components/TuiEditor";
 
 import styles from "./index.less";
 
@@ -12,7 +12,7 @@ const CreateArticle: React.FC<IProps> = () => {
     <div className={styles.container}>
       <Header>Create Article</Header>
       <Content needScroll={false}>
-        <EditPreview />
+        <TuiEditor />
       </Content>
     </div>
   );

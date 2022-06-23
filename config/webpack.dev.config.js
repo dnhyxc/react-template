@@ -23,19 +23,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            // options: {
-            //   modules: {
-            //     localIdentName: "[name]__[local]--[hash:base64:5]",
-            //   },
-            //   importLoaders: 1,
-            // },
-          },
-          "postcss-loader",
-        ],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       /**
        * 使用两次 less-loader 解决开启 css 模块化时导致antd自定义主题失效的问题。
@@ -131,5 +119,5 @@ module.exports = merge(common, {
       overlay: false,
     },
   },
-  devtool: "source-map",
+  devtool: "cheap-module-source-map",
 });

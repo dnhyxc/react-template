@@ -1775,6 +1775,44 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"@toast-ui/chart@^4.1.4":
+  version "4.4.3"
+  resolved "https://registry.npmmirror.com/@toast-ui/chart/-/chart-4.4.3.tgz#e3a5e00a1ce542cbefdba4ae6238828ccef5e7eb"
+  integrity sha512-lvv4g39uwl1DmsdlfrLxSf/qCGus7fDwWrWGlc5w9rcBidrWjZyFNmzfQC0Y/VycOPJR6YqfgPyY59R6+5eBsw==
+
+"@toast-ui/editor-plugin-chart@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/@toast-ui/editor-plugin-chart/-/editor-plugin-chart-3.0.1.tgz#3d1efe078abc4b28c315f2a9948cb05e7eade294"
+  integrity sha512-mdqJerDo836kxKZEa3B6NZOJLrb+acRMkPIanYo//9GFPJcllG7KFdZU+K0bSMapEED7W7OJCsOzM0VNThndHg==
+  dependencies:
+    "@toast-ui/chart" "^4.1.4"
+
+"@toast-ui/editor-plugin-code-syntax-highlight@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/@toast-ui/editor-plugin-code-syntax-highlight/-/editor-plugin-code-syntax-highlight-3.0.0.tgz#a82a7b75f12386280be7efdc7c6f5bf5b48744f3"
+  integrity sha512-62XB3IcFgvRxVZzj2kTeQao0xACotv/mD6jScSDkWac2V0jkCsTh0kZRG4TSW5bGdKvx4xz3YjFm7gWgw1I/Aw==
+  dependencies:
+    prismjs "^1.23.0"
+
+"@toast-ui/editor-plugin-color-syntax@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmmirror.com/@toast-ui/editor-plugin-color-syntax/-/editor-plugin-color-syntax-3.0.3.tgz#190acf64e710e105b3b2a8b8af53a83e80607d2d"
+  integrity sha512-5R7OOjN3voMjeKC09wSxLqnK/GYaCNLiWVxscMPqideYzWK+asEcNEyHH2HBPheVC/1YKqIEle1AxWFHTwDpnw==
+  dependencies:
+    tui-color-picker "^2.2.6"
+
+"@toast-ui/editor-plugin-table-merged-cell@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/@toast-ui/editor-plugin-table-merged-cell/-/editor-plugin-table-merged-cell-3.0.2.tgz#31b7a83c20a1f9b651ab32e05749be5b9988c9b7"
+  integrity sha512-GKV/jIm7WY04ExdxuNxwYJxWoGCAFntC7LyCcXoXkIovTOudRizsQhcv9LuDH3azPy2aTdzTEuw8qs4BWOwK/w==
+
+"@toast-ui/editor-plugin-uml@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/@toast-ui/editor-plugin-uml/-/editor-plugin-uml-3.0.1.tgz#a4840733364c5a2a124be6c6400a73ac7aebd808"
+  integrity sha512-KKvTB++lJkogOSBgtgJqli5nW76/fgxh0CvsHqKh5WQu2r6O+BTGPBG6oRy9PBfJvwN1g8YZ4ZLQGXSXDrtm1w==
+  dependencies:
+    plantuml-encoder "^1.4.0"
+
 "@toast-ui/editor@^3.1.7":
   version "3.1.7"
   resolved "https://registry.npmmirror.com/@toast-ui/editor/-/editor-3.1.7.tgz#6c889c8d068d7dd1c996a4a384ebb3dddd9e6b1d"
@@ -8090,6 +8128,11 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
+plantuml-encoder@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmmirror.com/plantuml-encoder/-/plantuml-encoder-1.4.0.tgz#7899302cf785de956bf1a167e15420feee5975f7"
+  integrity sha512-sxMwpDw/ySY1WB2CE3+IdMuEcWibJ72DDOsXLkSmEaSzwEUaYBT6DWgOfBiHGCux4q433X6+OEFWjlVqp7gL6g==
+
 postcss-attribute-case-insensitive@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmmirror.com/postcss-attribute-case-insensitive/-/postcss-attribute-case-insensitive-5.0.1.tgz#86d323c77ab8896ed90500071c2c8329fba64fda"
@@ -8716,7 +8759,7 @@ pretty-time@^1.1.0:
   resolved "https://registry.npmmirror.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prismjs@^1.23.0, prismjs@^1.27.0:
+prismjs@^1.23.0, prismjs@^1.27.0, prismjs@^1.28.0:
   version "1.28.0"
   resolved "https://registry.npmmirror.com/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
   integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
@@ -10709,6 +10752,11 @@ tsutils@^3.21.0:
   integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
   dependencies:
     tslib "^1.8.1"
+
+tui-color-picker@^2.2.6:
+  version "2.2.8"
+  resolved "https://registry.npmmirror.com/tui-color-picker/-/tui-color-picker-2.2.8.tgz#8e140ab04066dbdb2353c4a1f434ad7d8d7b0d73"
+  integrity sha512-q5sE9NQ5NR9lYpilYjcI7Sdv0KCogo+W8fZY+AYTj/HYg+9fscYy3UuJ6UQiV1bF+ARCLwFRWC8UcOt9kuUctQ==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
