@@ -1,4 +1,10 @@
-import { DesktopOutlined, HomeOutlined, FormOutlined } from "@ant-design/icons";
+import {
+  DesktopOutlined,
+  HomeOutlined,
+  FormOutlined,
+  ReadOutlined,
+  CodeOutlined,
+} from "@ant-design/icons";
 
 export const items = [
   {
@@ -18,12 +24,12 @@ export const items = [
   },
   {
     key: "preview",
-    icon: <FormOutlined />,
+    icon: <ReadOutlined />,
     label: "preview",
   },
   {
     key: "mackdown",
-    icon: <FormOutlined />,
+    icon: <CodeOutlined />,
     label: "mackdown",
   },
 ];

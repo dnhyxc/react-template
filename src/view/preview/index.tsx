@@ -8,7 +8,7 @@ const CreateMackdown: React.FC = () => {
   const { create } = useStore();
   return (
     <div>
-      <Header>create mackdown</Header>
+      <Header>Preview mackdown</Header>
       <Content>
         <Preview mackdown={create.mackdown} />
       </Content>
