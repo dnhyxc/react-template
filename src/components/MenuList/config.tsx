@@ -22,11 +22,6 @@ export const items = [
     label: "preview",
   },
   {
-    key: "createArticle",
-    icon: <FormOutlined />,
-    label: "createArticle",
-  },
-  {
     key: "mackdown",
     icon: <FormOutlined />,
     label: "mackdown",

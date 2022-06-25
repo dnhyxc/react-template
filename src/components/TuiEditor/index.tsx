@@ -20,28 +20,14 @@ import tableMergedCell from "@toast-ui/editor-plugin-table-merged-cell";
 import uml from "@toast-ui/editor-plugin-uml";
 import Prism from "prismjs";
 import * as Service from "@/service";
+import { toolbars } from "./toobars";
 import styles from "./index.less";
 
-const TuiEditor: React.FC = () => {
-  const toolbars = [
-    ["heading", "bold", "italic"],
-    ["hr", "quote", "strike"],
-    ["ul", "ol", "task", "indent", "outdent"],
-    ["table", "image", "link"],
-    ["code", "codeblock"],
-    ["scrollSync"],
-    [
-      {
-        name: "myItem",
-        tooltip: "myItem",
-        command: "italic",
-        text: "[ ]",
-        className: "toastui-editor-toolbar-icons",
-        style: { backgroundImage: "none", color: "red" },
-      },
-    ],
-  ];
+interface IProps {
+  onGetMackdown: Function;
+}
 
+const TuiEditor: React.FC<IProps> = ({ onGetMackdown }) => {
   useEffect(() => {
     const instance = new Editor({
       el: document.querySelector("#editor")!,
@@ -63,7 +49,7 @@ const TuiEditor: React.FC = () => {
       ],
       events: {
         change: () => {
-          console.log(instance.getMarkdown(), "instance.getMarkdown();");
+          onGetMackdown && onGetMackdown(instance.getMarkdown());
         },
       },
       hooks: {

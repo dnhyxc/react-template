@@ -21,4 +21,26 @@
   :global(.toastui-editor-contents blockquote) {
     background: #eee;
   }
+  :global(.toastui-editor-defaultUI) {
+    border: none;
+    :global(.ProseMirror){
+      padding: 10px 10px;
+    }
+  }
+  :global(.toastui-editor-md-container .toastui-editor-md-preview) {
+    padding: 0 10px;
+
+    :global(.toastui-editor-contents) {
+      padding-top: 0;
+    }
+  }
+  :global(.toastui-editor-popup-body
+      input[type="text"].tui-colorpicker-palette-hex) {
+    width: 100px;
+  }
+  :global(.toastui-editor-popup-color
+      .tui-colorpicker-container
+      .tui-colorpicker-palette-preview) {
+    margin-top: 3px;
+  }
 }
